@@ -1,0 +1,34 @@
+name: Update Test Cases from Google Sheets
+
+# Триггеры: по расписанию и ручной запуск
+on:
+  schedule:
+    - cron: '0 6 * * *'       # каждый день в 06:00 UTC
+  workflow_dispatch:         # возможность запустить вручную
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Download CSVs from Google Sheets
+        run: ./scripts/download-sheets.sh
+
+      - name: Commit & push updated CSVs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add \
+            saucedemo-ui-testing/test-cases-saucedemo.csv \
+            saucedemo-ui-testing/traceability-matrix-saucedemo.csv \
+            reqres-api-testing/test-cases-reqres.csv \
+            reqres-api-testing/traceability-matrix-reqres.csv
+          if ! git diff --cached --quiet; then
+            git commit -m "ci: update test cases from Google Sheets"
+            git push
+          else
+            echo "No changes to commit"
+          fi
