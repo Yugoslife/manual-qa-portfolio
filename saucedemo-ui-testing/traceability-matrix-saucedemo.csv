@@ -1,0 +1,43 @@
+Requirement ID,Requirement Description,Scenario ID,Test Case ID,Test Case Title,Status,Bug ID(s)
+,,## Login & Authentication,,,,
+REQ-LOGIN-01,User must be able to log in,SC01: Successful login with valid credentials,TC01,Login as standard_user ,Pass,
+REQ-LOGIN-01,User must be able to log in,SC01: Successful login with valid credentials,TC02,Login as locked_out_user (blocked user),Pass,
+REQ-LOGIN-01,User must be able to log in,SC01: Successful login with valid credentials,TC03,Login as problem_user,Pass,
+REQ-LOGIN-01,User must be able to log in,SC01: Successful login with valid credentials,TC04,Login as performance_glitch_user,Pass,
+REQ-LOGIN-01,User must be able to log in,SC01: Successful login with valid credentials,TC05,Login as error_user (HTTP error),Fail,
+REQ-LOGIN-01,User must be able to log in,SC01: Successful login with valid credentials,TC06,Login as visual_user (UI glitches),Pass,
+REQ-LOGIN-02,"User have to see Error 
+message when password 
+is empty",SC02: Error message when password is empty,TC07,"Login as standard_user
+with empty Password-input",Pass,
+REQ-LOGIN-03,"User have to see Error 
+message with invalid 
+username/password",SC03: Error message with invalid username/password,TC08,"Login as standard_user 
+with invalid Password",Pass,
+,,SC03: Error message with invalid username/password,TC09,"Login as standard_user 
+with invalid Username",Pass,
+,,## Product Browsing & Cart,,,,
+REQ-LOGIN-04,"User must be able to see 
+Product list","SC04: View product list
+",TC10,View product list,Pass,
+REQ-LOGIN-05,"User must be able to sort 
+Products by price",SC05: Sort products by price,TC11,"Sort products by price: 
+Low → High",Pass,
+REQ-LOGIN-05,"User must be able to sort 
+Products by price",SC05: Sort products by price,TC12,"Sort products by price: 
+High → Low",Pass,
+REQ-LOGIN-06,"User must be able to 
+add Item to cart",SC06: Add item to cart,TC13,Add item to cart,Pass,
+REQ-LOGIN-07,"User must be able to 
+remove Item from cart",SC07: Remove item from cart,TC14,Remove item from cart,Pass,
+,,## Checkout,,,,
+REQ-LOGIN-08,"User must be able to 
+complete checkout process",SC08: Complete checkout process,TC15,Complete checkout process,Pass,
+REQ-LOGIN-09,"User must be able to 
+get Error handling 
+on missing payment details ","SC09: Error handling 
+on missing payment details",TC16,"Error handling 
+on missing payment details",Pass,
+,,## Logout,,,,
+REQ-LOGIN-10,"User must be able to 
+remove Item from cart",SC10: Successful logout returns to login page,TC17,Successful logout returns to login page,Pass,
