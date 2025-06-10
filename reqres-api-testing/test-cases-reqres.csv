@@ -1,0 +1,21 @@
+ID,Title,"HTTP 
+Method",Description,"API 
+Endpoint",Payload,Expected Status,"Expected Response 
+Check",Actual Status,Actual Response,Status
+API1,List users,GET,,	/api/users?per_page=3,–,200,"JSON has data array 
+of length 3",,,Pass
+API2,Single user – success,GET,,/api/users/2,–,200,data.id == 2 and data.email exists,,,
+API3,Single user – not found,GET,,/api/users/23,–,404,	Empty object {} or no data field,,,
+API4,Create new user,POST,,/api/users,"{""name"":""Test"",""job"":""QA""}",201,Response JSON has id and createdAt fields,,,
+API5,,,,,,,,,,
+API6,,,,,,,,,,
+API7,,,,,,,,,,
+API8,,,,,,,,,,
+API9,,,,,,,,,,
+API10,,,,,,,,,,
+API11,,,,,,,,,,
+API12,,,,,,,,,,
+API13,,,,,,,,,,
+API14,,,,,,,,,,
+API15,,,,,,,,,,
+API16,,,,,,,,,,
